@@ -1,0 +1,17 @@
+<admissions>
+    <admission sr="1">
+        <sl> 23 </sl>
+        <name> John Carter </name>
+        <admission_date> 25/12/2015 </admission_date>
+    </admission>
+    <admission sr="2">
+        <sl> 29 </sl>
+        <name> BOb Marshl </name>
+        <admission_date> 13/01/1999 </admission_date>
+    </admission>
+    <admission sr="3">
+        <sl> 35 </sl>
+        <name> Clark Kent </name>
+        <admission_date> 17/06/2005 </admission_date>
+    </admission>
+</admissions>
