@@ -28,29 +28,26 @@
                 <label for="forgot_password">Forgot Password?</label>
             </a>
         </fieldset>
-
     </form>
 </body>
 </html>
-
-
 <?php 
     if(isset($_POST['submit'])){
         $username = $_POST["username"];
         $password = $_POST["password"];
         
-
+        //-------------username validation--------------
         if(empty($username)){
-            echo "User Name is missing";
+            echo "User Name is missing!";
         }elseif(empty($password)){
-            echo "Password is missing";
+            echo "Password is missing!";
         }elseif(strlen($username)<2){
-            echo "User Name must contain at least two (2) character";
+            echo "User Name must contain at least two (2) character!";
         }elseif(strlen($password)<8){
-            echo "Password must contain at least eight (8) character";
+            echo "Password must contain at least eight (8) character!";
+        }else{
+            echo "Login Successful!";
         }
-    
-
     }
 ?>
 

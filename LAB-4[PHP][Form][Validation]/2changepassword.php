@@ -49,13 +49,11 @@
         $retype_new_pass = $_POST["retype_new_password"];
         
         if($current_pass == $new_pass){
-            echo "New Password should not be same as the Current Password";
+            echo "Invalid Password! New Password should not be same as the Current Password";
         }elseif($new_pass != $retype_new_pass){
-            echo "New Password must match with the Retyped Password";
+            echo "Invalid Password! New Password must match with the Retyped Password";
         }else{
             echo "Password Changed Successfully!";
         }
-
     }
-
 ?>
