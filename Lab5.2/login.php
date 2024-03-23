@@ -1,47 +1,61 @@
+<?php
+    include("header.php");
+?>
+<?php 
+    session_start();
 
-<html>
+    //include("registration.php");
+
+    if (isset($_POST["submit"])) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+
+        if(isset($_SESSION["username"]) && isset($_SESSION["password"])) {
+            if($_SESSION["username"] == $username) {
+                if($_SESSION["password"] == $password){
+                    header("Location: dashboard.php");
+                    exit;
+                }else{
+                    echo "wrong password.";
+                }
+            }else{
+                echo "wrong username";
+         }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>
-        Login
-    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+    .login{
+        border: 1px solid #111;
+        padding: 10px 10px;
+    }
+    </style>
 </head>
-
 <body>
+    <div class="login">
+    <form action="login.php" method="post">
+    <fieldset>
+        <legend>Login </legend>
+        Username:<br><input type="text" name="username" placeholder="username"> <br>
+        Password:<br><input type="password" name="password" placeholder="password"> <br>
+        <hr>
+        <input type="checkbox" name="remember"> Remember Me <br>
+        <input type="submit" value="Submit" name="submit">
+        <a href="forgetpassword.php">Forgot Password?</a> <br>
+        <a href="registration.php">Registration</a>
 
-<form method="post" action="logincheck.php">
-    <fieldset style="">
-    <center>
-        <form method="post" action=""  enctype="">
-            <fieldset style="width: 50%; ">
-                <legend><b>LOGIN</b></legend>
-
-                <table border="0">
-                    <tr>
-                        <td>UserName</td>
-                        <td>: <input type="text" value="" name="username" title=" User Name can contain alpha numeric characters, period, dash or underscore onlyUser"></td>
-                    </tr>
-                    <tr>
-                        <td>Password </td>
-                        <td>: <input type="password" value="" name="password" title=". Password must not be less than eight (8) characters"></td>
-                    </tr>
-                </table>
-
-                <hr>
-                <input type="checkbox" value="" name="">
-                <label for="remember">Remember Me</label>
-                <br><br>
-                <input type="submit" value="Submit" name="">
-                <a href="password.html">
-                    <label for="forgot_password">Forgot Password?</label>
-                </a>
-            </fieldset>
-        
-        </fieldset>    
-        </form>
-    </center>
-</form>
-
+    </fieldset>
+    </form>
+    </div>
 </body>
-
-
 </html>
+<?php
+    include("footer.php");
+?>
