@@ -1,15 +1,14 @@
-<?php 
+<?php
     session_start();
-    $username  =  $_REQUEST['username'];
-    $password  =  $_REQUEST['password'];
+    $username = $_REQUEST['username'];
+    $password = $_REQUEST['password'];
 
     if($username == "" || $password == ""){
-        echo "null username or password!";
-    }else if ($username == $password){
-        $_SESSION['flag'] = "true";
-        $_SESSION['username'] = $username;
-        header('location: home.php');
+        echo "null usernamepassword";
+    }else if($username == $password){
+        $_SESSION['flag'] = $username;
+        header('location: dashboard.php');
     }else{
-        echo "invalid user!";
+        echo "invalid User!";
     }
 ?>

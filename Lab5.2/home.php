@@ -1,23 +1,29 @@
-<?php 
-    //session_start();
-
-    //if(!isset($_SESSION['flag'])){
-    //    header('location: login.php');
-    //}
-?>
-
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Home</title>
+    <title>Public Home</title>
 </head>
 <body>
-    <img src="">
-    <a href="home.php">Home</a>|
-    <a href="login.php">Login</a>|
-    <a href="registration.php">Registration</a>
-    <?php //echo $_SESSION['username'];?>
-    <h1>Welcome to xCompany </h1>
-    <center><p>Copyright @2017 </p></center>
+    <table width="720px" border="1">
+        <tr>
+            <td colspan="3">
+                <b>&emsp;X Company</b> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   
+                <a href="home.php">Home</a> |
+                <a href="registration.php">Registration</a> |
+                <a href="login.php">Login</a>
+            </td>
+            
+        </tr>
+        <tr>
+            <td colspan="3">
+                <h4>&emsp;Welcome to XCompany</h4>
+                <br>
+                <br>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
+<?php
+    include("footer.php");
+?>

@@ -1,18 +1,14 @@
 <?php
-
     session_start();
-
     if(!isset($_SESSION['flag'])){
         header('location: login.php');
     }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dashboard</title>
+    <title>Edit Profile</title>
 </head>
 <body>
     <table width="720px" border="1">
@@ -39,17 +35,23 @@
                 </ul>
             </td>
             <td style="width: 70%;">
-                <h2>Welcome 
-                <?php 
-                    echo $_SESSION['flag']; 
-                ?></h2>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align: center;">
-                Copyright &copy; 2024
+                <fieldset>
+                    <legend><b>EDIT PROFILE</b></legend>
+                        <form action="edit_profile_process.php" method="POST">
+                            Name: <input type="text" name="name" value="Bob"><br>
+                            Email:<input type="email" name="email" value="bob@aiub.edu"><br>
+                            Gender:<input type="text" name="gender" value="Male"><br>
+                            Date of Birth:<input type="text" name="dob" value="23/12/1999"><br>
+
+                            <hr>
+                            <input type="submit" name="submit" value="Submit" />
+                    </fieldset>
+                </form>
             </td>
         </tr>
     </table>
 </body>
 </html>
+<?php
+    include("footer.php");
+?>

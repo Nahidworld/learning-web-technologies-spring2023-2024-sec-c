@@ -1,18 +1,14 @@
 <?php
-
     session_start();
-
     if(!isset($_SESSION['flag'])){
         header('location: login.php');
     }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dashboard</title>
+    <title>Change Profile Picture</title>
 </head>
 <body>
     <table width="720px" border="1">
@@ -39,10 +35,14 @@
                 </ul>
             </td>
             <td style="width: 70%;">
-                <h2>Welcome 
-                <?php 
-                    echo $_SESSION['flag']; 
-                ?></h2>
+                <fieldset>
+                    <legend><b>PROFILE PICTURE</b></legend>
+                    <form action="profilePicture.php" method="POST" enctype="multipart/form-data">
+                    <img src="Profile.png" alt="Profile Picture" width="100"><br>
+                    <input type="file" name="profile_picture" accept="image/*"><br><br>
+                    <hr>
+                    <input type="submit" name="submit" value="Submit" />
+                </form>
             </td>
         </tr>
         <tr>

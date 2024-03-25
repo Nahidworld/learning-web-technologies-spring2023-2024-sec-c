@@ -1,21 +1,18 @@
 <?php
-
     session_start();
 
     if(!isset($_SESSION['flag'])){
         header('location: login.php');
     }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Dashboard</title>
+    <title>Change Password</title>
 </head>
 <body>
-    <table width="720px" border="1">
+<table width="720px" border="1">
         <tr>
             <td colspan="2">
             &emsp;<b>X Company</b> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
@@ -26,7 +23,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 30%;">
+            <td style="width: 35%;">
                 Account
                 <hr>
                 <ul>
@@ -39,10 +36,17 @@
                 </ul>
             </td>
             <td style="width: 70%;">
-                <h2>Welcome 
-                <?php 
-                    echo $_SESSION['flag']; 
-                ?></h2>
+                <fieldset>
+                    <legend><b>CHANGE PASSWORD</b></legend>
+                    <form action="changePassword.php" method="POST">
+                        Current Password:<input type="password" name="currentp_assword" value=""><br>
+                        New Password:<input type="password" name="new_password" value=""><br>
+                        Retype New Password:<input type="password" name="confirm_password" value=""><br>
+
+                        <hr>
+                        <input type="submit" name="submit" value="Submit" />
+                    </form>
+                </fieldset>
             </td>
         </tr>
         <tr>
@@ -51,5 +55,6 @@
             </td>
         </tr>
     </table>
+    
 </body>
 </html>

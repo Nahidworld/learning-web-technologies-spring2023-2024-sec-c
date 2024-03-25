@@ -1,18 +1,13 @@
 <?php
-
     session_start();
-
     if(!isset($_SESSION['flag'])){
         header('location: login.php');
     }
-
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Dashboard</title>
+<head><title>View Profile</title>
 </head>
 <body>
     <table width="720px" border="1">
@@ -39,10 +34,19 @@
                 </ul>
             </td>
             <td style="width: 70%;">
-                <h2>Welcome 
-                <?php 
-                    echo $_SESSION['flag']; 
-                ?></h2>
+            <fieldset>
+                <legend><b>VIEW PROFILE</b></legend>
+                <form action="viewProfile.php" method="POST">
+                    <img src="Profile.png" alt="Profile Picture" width="100"><br>
+                    <a href="changeProfilePicture.php">Change</a><br><br>
+
+                    Name: Bob<hr>
+                    Email: bob@aiub.edu<hr>
+                    Gender: Male<hr>
+                    Date of Birth: 19/09/1998
+                    <hr>
+                    <a href="editProfile.php">Edit Profile</a>
+                </fieldset>
             </td>
         </tr>
         <tr>
