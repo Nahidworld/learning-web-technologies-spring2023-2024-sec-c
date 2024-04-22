@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script>
+        function formValidation() {
+
+            //variables
+            var name = document.getElementsByName('name')[0].value;
+            var age = document.getElementsByName('age')[0].value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var email = document.getElementsByName('email')[0].value;
+            var username = document.getElementsByName('username')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            var confirm_password = document.getElementsByName('confirm_password')[0].value;
+
+            // Validation Conditions
+            //------name-------------
+            if (name === "") {
+                alert("Name must not be empty");
+                return false;
+            }
+            //Contains at least two words
+            else if (name.length <2) {
+                alert("Name must contain 2 letter");
+                return false;
+            }
+            //stat letter
+            if (!(name[0] >= 'a' && name[0] <= 'z') && !(name[0] >= 'A' && name[0] <= 'Z') ) {
+                alert("Name must start with a letter");
+                return false;
+            }
+            //Can contain a-z or A-Z or dot(.) or dash(-)
+            for (var i = 0; i < name.length; i++) {
+                var ch = name[i];
+                if (!(ch >= 'a' && ch <= 'z') && !(ch >= 'A' && ch <= 'Z') && ch != '-'&& ch != '.') {
+                    alert("Invalid character in the name");
+                    return false;
+                }
+            }
+            //----email-----
+            if (email === "") {
+                alert("Email must not be empty");
+                return false;
+            }
+            //Must be a valid email address (i.e anything@example.com)
+
+
+            //--------age---------
+            if (age === "") {
+                alert("age must not be empty");
+                return false;
+            }
+
+            //gender
+            if (gender === "") {
+                alert("age must not be empty");
+                return false;
+            }
+            return true; 
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="registration">
+            <h1>Registration</h1>
+            <h2 id="message"></h2>
+            <form name="reg" onsubmit="return formValidation()" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" name="name" placeholder="Name"></td>
+                    </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td><input type="number" name="age" placeholder="18 - 50"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <input type="radio" name="gender" value="Male">Male
+                            <input type="radio" name="gender" value="Female">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email" placeholder="abc@gmail.com"></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="username" placeholder="Username"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" placeholder="Password"></td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password:</td>
+                        <td><input type="password" name="confirm_password" placeholder="Confirm Password"></td>
+                    </tr>
+                    <tr>
+                        <td>Profile Picture:</td>
+                        <td><input type="file" class="pp" name="profile_picture"></td>
+                    </tr>
+                    <tr>
+                        <td>User Id:</td>
+                        <td><input type="number" name="user_id"></td>
+                    </tr>
+                </table>
+                <input class="common-btn" id="btn-1" type="submit" value="Register" name="submit"> <br>
+                <input class="common-btn" id="btn-2" type="reset" value="Clear" name="reset"><br>
+                <p>Already have an account? <a href="login.php">Login now</a></p>
+                <p><a href="forgetPassword.php">Forgotten Password?</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
