@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/reg.css">
     <script src="../assets/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         p .forgetPass{
             color: #fff;
             background:#fff;
+        }
+        h2{
+            color: red;
+            text-transform: capitalize;
         }
     </style>
 </head>
@@ -30,13 +35,17 @@
     <div class="container">
         <div class="login">
             <h1 >Log In</h1>
-            <form  method="post" onsubmit="return loginValidation()">
-            <label for="username">Username:</label><br>
+            <!-- <h2 id="message"></h2> Display validation message here -->
+            <form id="loginForm" method="post" onsubmit="return loginValidation()">
+            <label for="username">Username:</label>
+            
+            <br>
             <input type="text" id="username" name="username" placeholder="Nahid"><br><br>
             
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" placeholder="****"><br><br>
             <p id="forget" class="forgetPass"><a href="../view/forgetPassword.php"> Forgotten Password? </a></p>
+            <h2 id="message"></h2> <!-- Display validation message here -->
             <input class="common-btn" id="sub" type="submit" value="Login" name="login">
             <input class="common-btn" id="reset" type="reset" value="Clear" name="reset"><br>
             <p>Create an account?<a href="../view/signup.html"> Signup now </a></p>
@@ -57,6 +66,54 @@
             Copyright &copy; 2024
         </p>
     </div>
-    
+
+    <script>
+        $(document).ready(function(){
+            $('#username').on('blur', function(){
+                var username = $(this).val();
+                if(username.trim() !== '') {
+                    // AJAX request to validate the username
+                    $.ajax({
+                        url: 'validate_username.php', // Change this to the actual path of your server-side script
+                        type: 'POST',
+                        data: {username: username},
+                        success: function(response) {
+                            if(response === 'valid') {
+                                // Username is valid
+                                // Update the message in the h4 element
+                                $('#message').html('Username is valid');
+                            } else {
+                                // Username is not valid
+                                // Update the message in the h4 element
+                                $('#message').html('Username is not valid');
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        function loginValidation() {
+            var username = document.getElementById('username').value;
+            if (username.trim() === '') {
+                // alert("Username cannot be empty");
+                document.getElementById('message').innerHTML = "Username cannot be empty";
+                return false;
+            }
+            
+            var regex = /^[a-zA-Z.-]+$/;
+            if (!regex.test(username)) {
+                // alert("Username can only contain letters, dots (.), or dashes (-)");
+                document.getElementById('message').innerHTML = "Username can only contain letters, dots (.), or dashes (-)";
+                return false;
+            }
+            if (!/^[a-zA-Z]/.test(username)) {
+                // alert("Username must start with a letter");
+                document.getElementById('message').innerHTML = "Username must start with a letter";
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
