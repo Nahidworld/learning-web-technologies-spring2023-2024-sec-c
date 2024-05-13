@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /*
         body{
             margin : 0px;
             background-color: #f0f0f0;
@@ -30,19 +29,19 @@
             background-color: #111;
             color: #9EF4E6;
         }
-        */
     </style>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/script.js"></script>
 </head>
 <body>
     
-    <div class="footer" style="text-align:center">
-    <hr>
-        <a href="index.php">Home</a>|
-        <a href="joblist.php">Job List</a>|
-        <a href="about.php">About Us</a> |
-        <a href="contact.php">Contact Us</a> |
-        <a href="faq.php">FAQ</a>|
-        <a href="logout.php">Log Out</a>
+<div class="footer" style="text-align:center">
+        <a href="../view/index.php">Home</a>
+        <a href="../view/joblist.php">Job List</a>
+        <a href="../view/about.php">About Us</a> 
+        <a href="../view/contact.php">Contact Us</a> 
+        <a href="../view/faq.php">FAQ</a> <br><br><br>
+        <a href="../view/logout.php" id="logout">Log Out</a>
         <br>
         <P >
             Copyright &copy; 2024

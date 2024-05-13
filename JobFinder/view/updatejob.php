@@ -1,74 +1,5 @@
 <?php
-include("../model/db.php");
-
-if (!isset($_GET['updateid'])) {
-    header("Location: ../view/joblist.php");
-    exit();
-}
-
-$con = dbConnect();
-
-$id = $_GET['updateid'];
-$sql = "SELECT * FROM jobs WHERE id = $id";
-$result = mysqli_query($con, $sql);
-
-if (!$result || mysqli_num_rows($result) == 0) {
-    header("Location: ../view/joblist.php");
-    exit();
-}
-
-$row = mysqli_fetch_assoc($result);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $job_title = $_POST['job_title'];
-    $company_name = $_POST['company_name'];
-    $description = $_POST['description'];
-    $location = $_POST['location'];
-    $job_type = $_POST['job_type'];
-    $salary = $_POST['salary'];
-    $app_time = $_POST['app_time'];
-
-    $sql = "UPDATE jobs SET job_title = '$job_title', company_name = '$company_name', description = '$description', location = '$location', job_type = '$job_type', salary = '$salary', application_time = '$app_time' WHERE id = $id";
-    mysqli_query($con, $sql);
-
-    header("Location: ../view/joblist.php");
-    exit();
-}
-
-include("../view/header.php");
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Job</title>
-</head>
-<body>
-    <h2>Update Job</h2>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?updateid=' . $id; ?>" method="post">
-            Job Title: <br>     <input type="text" name="job_title" placeholder="Job Title"><br>
-            Company Name: <br>  <input type="text" name="company_name" placeholder="Company Name"><br>
-            Description: <br>   <input type="text" name="description" placeholder="Details"><br>
-            Location: <br>      <input type="text" name="location" placeholder="Location"><br>
-            Job Type: <br>      <input type="text" name="job_type" placeholder="Job Type"><br>
-            Salary: <br>        <input type="text" name="salary" placeholder="20000"><br><br>
-    </form>
-</body>
-</html>
-<?php
-include("../view/footer.php");
-?>
-
-
-
-
-
-
-
-
-<?php
-    include("../model/db.php");
+    require_once("../model/db.php");
     $con = dbConnect();
 
     if(isset($_GET['updateid'])){
@@ -132,6 +63,7 @@ include("../view/header.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Job</title>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
     <h2>Update Job</h2>
@@ -143,6 +75,58 @@ include("../view/header.php");
         Job Type: <br>      <input type="text" name="job_type" placeholder="Job Type"><br>
         Salary: <br>        <input type="text" name="salary" placeholder="20000"><br><br>
         <input type="submit" value="Update Job">
+    </form>
+</body>
+</html>
+<?php
+include("../view/footer.php");
+?>
+
+
+<?php
+    require_once("../model/db.php");
+
+    if (!isset($_GET['updateid'])) {
+        header("Location: ../view/joblist.php");
+        exit();
+    }else {
+        echo "<script>alert('No job ID provided for update.'); window.location.href = '../view/joblist.php';</script>";
+        exit();
+    }
+
+    $con = dbConnect();
+
+    $id = $_GET['updateid'];
+    $sql = "SELECT * FROM jobs WHERE id = $id";
+    $result = mysqli_query($con, $sql);
+
+    if (!$result || mysqli_num_rows($result) == 0) {
+        header("Location: ../view/joblist.php");
+        exit();
+    }
+
+    $row = mysqli_fetch_assoc($result);
+
+    include("../view/header.php");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Job</title>
+</head>
+<body>
+    <h2>Update Job</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?updateid=' . $id; ?>" method="post">
+            Job Title: <br>     <input type="text" name="job_title" placeholder="Job Title" value="<?php echo htmlspecialchars($row['job_title']); ?>"><br>
+            Company Name: <br>  <input type="text" name="company_name" placeholder="Company Name" value="<?php echo htmlspecialchars($row['company_name']); ?>"><br>
+            Description: <br>   <input type="text" name="description" placeholder="Details" value="<?php echo htmlspecialchars($row['description']); ?>"><br>
+            Location: <br>      <input type="text" name="location" placeholder="Location" value="<?php echo htmlspecialchars($row['location']); ?>"><br>
+            Job Type: <br>      <input type="text" name="job_type" placeholder="Job Type" value="<?php echo htmlspecialchars($row['job_type']); ?>"><br>
+            Salary: <br>        <input type="text" name="salary" placeholder="20000" value="<?php echo htmlspecialchars($row['salary']); ?>"><br><br>
+            Application Time: <br> <input type="text" name="app_time" placeholder="Application Time" value="<?php echo htmlspecialchars($row['application_time']); ?>"><br><br>
+            <input type="submit" value="Update Job">
     </form>
 </body>
 </html>

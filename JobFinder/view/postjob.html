@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Job</title>
+    
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/reg.css">
+    <script src="../assets/script.js"></script>
+</head>
+<body>
+    <div class="header" style="text-align:center">
+        <div class="logo">
+            <img src="../assets/logo1.png" alt="">
+        </div>
+        <a href="../view/index.html">Home</a> 
+        <a href="../view/postjob.html">Post Job</a> 
+        <!-- <a href="../view/signup.html">Registration</a>  -->
+        <a href="../view/registration.php">Login</a>
+        <a href="../view/login.html">Login</a> 
+    </div>
+    <div class="job">
+        <h1>Post Job</h1>
+        <form action="../model/postjob.php" method="get">
+            Job Title: <br>     <input type="text" name="job_title" placeholder="Job Title"><br>
+            Company Name: <br>  <input type="text" name="company_name" placeholder="Company Name"><br>
+            Description: <br>   <input type="text" name="description" class="textarea" ><br>
+            Location: <br>      <input type="text" name="location" placeholder="Location"><br>
+            Job Type: <br>      <input type="text" name="job_type" placeholder="Job Type"><br>
+            Salary: <br>        <input type="text" name="salary" placeholder="20000"><br><br>
+
+                                <input class="common-btn" id="sub" type="submit" value="Post Job" name="post_job">
+                                <input class="common-btn" id="reset" type="reset" value="Clear">
+        </form>
+    </div>
+
+    <div class="footer" style="text-align:center">
+        <a href="../view/index.php">Home</a>
+        <a href="../view/joblist.php">Job List</a>
+        <a href="../view/about.php">About Us</a> 
+        <a href="../view/contact.html">Contact Us</a> 
+        <a href="../view/faq.php">FAQ</a> <br><br><br>
+        <a href="../view/logout.php" id="logout">Log Out</a>
+        <br>
+        <p class="copyright" >
+            Copyright &copy; 2024
+        </p>
+    </div>
+</body>
+</html>

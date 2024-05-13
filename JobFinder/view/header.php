@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /*body{
+        body{
             margin : 0px;
             background-color: #f0f0f0;
         }
@@ -29,19 +29,18 @@
         .header a:hover {
             background-color: #111;
             color: #9EF4E6;
-        }*/
-        
+        }
     </style>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/script.js"></script>
 </head>
 <body>
-    <div class="header" style="text-align:center">
-        <h1>Job Finder</h1>
-        <a href="index.php">Home</a> |
-        <a href="postjob.php">Post Job</a> |
-        <a href="registration.php">Registration</a> |
-        <a href="login.php">Login</a> 
-        <hr>
-        
-    </div>
+<div class="header" style="text-align:center">
+    <h1>Job Finder</h1>
+    <a href="../view/index.html">Home</a> 
+    <a href="../view/postjob.html">Post Job</a> 
+    <a href="../view/signup.html">Registration</a> 
+    <a href="../view/login.html">Login</a> 
+</div>
 </body>
 </html>

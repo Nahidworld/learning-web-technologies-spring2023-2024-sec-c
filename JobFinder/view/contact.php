@@ -18,6 +18,7 @@
             padding: 5px 10px;
         }
     </style>
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 
 <body>

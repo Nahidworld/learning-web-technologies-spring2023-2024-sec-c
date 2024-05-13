@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/script.js"></script>
+</head>
+<body>
+    <div class="header" style="text-align:center">
+        <div class="logo">
+            <img src="../assets/logo1.png" alt="">
+        </div>
+        <a href="../view/index.html">Home</a> 
+        <a href="../view/postjob.html">Post Job</a> 
+        <a href="../view/signup.html">Registration</a> 
+        <a href="../view/login.html">Login</a> 
+    </div>
+
+    <div class="contact">
+        <h1>Contact Us</h1>
+        <form name="contact" onsubmit="return contactValidation()" enctype="multipart/form-data">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="email" id="email" placeholder="Email">
+            <input type="text" name="message" class="message textarea" id="message" placeholder="Text Here">
+            <input class="common-btn " id="btn-contact" type="submit" value="Send" name="submit"> <br>
+            <input class="common-btn" id="btn-2" type="reset" value="Clear" name="reset"><br>
+        </form>
+    </div>
+    
+
+
+    <div class="footer" style="text-align:center">
+        <a href="../view/index.php">Home</a>
+        <a href="../view/joblist.php">Job List</a>
+        <a href="../view/about.php">About Us</a> 
+        <a href="../view/contact.php">Contact Us</a> 
+        <a href="../view/faq.php">FAQ</a> <br><br><br>
+        <a href="../view/logout.php" id="logout">Log Out</a>
+        <br>
+        <p >
+            Copyright &copy; 2024
+        </p>
+    </div>
+</body>
+</html>

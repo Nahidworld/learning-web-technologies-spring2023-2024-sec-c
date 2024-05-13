@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/reg.css">
+    <script src="../assets/script.js"></script>
+    <style>
+        p .forgetPass{
+            color: #fff;
+            background:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header" style="text-align:center">
+        <div class="logo">
+            <img src="../assets/logo1.png" alt="">
+        </div>
+        <a href="../view/index.html">Home</a> 
+        <a href="../view/postjob.html">Post Job</a> 
+        <!-- <a href="../view/signup.html">Registration</a>  -->
+        <a href="../view/registration.php">Login</a>
+        <a href="../view/login.html">Login</a> 
+    </div>
+
+    <div class="container">
+        <div class="login">
+            <h1 >Log In</h1>
+            <form  method="post" onsubmit="return loginValidation()">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" placeholder="Nahid"><br><br>
+            
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="****"><br><br>
+            <p id="forget" class="forgetPass"><a href="../view/forgetPassword.php"> Forgotten Password? </a></p>
+            <input class="common-btn" id="sub" type="submit" value="Login" name="login">
+            <input class="common-btn" id="reset" type="reset" value="Clear" name="reset"><br>
+            <p>Create an account?<a href="../view/signup.html"> Signup now </a></p>
+            
+            </form>
+        </div>
+    </div>
+
+    <div class="footer" style="text-align:center">
+        <a href="../view/index.php">Home</a>
+        <a href="../view/joblist.php">Job List</a>
+        <a href="../view/about.php">About Us</a> 
+        <a href="../view/contact.html">Contact Us</a> 
+        <a href="../view/faq.php">FAQ</a> <br><br><br>
+        <a href="../view/logout.php" id="logout">Log Out</a>
+        <br>
+        <p class="copyright">
+            Copyright &copy; 2024
+        </p>
+    </div>
+    
+</body>
+</html>

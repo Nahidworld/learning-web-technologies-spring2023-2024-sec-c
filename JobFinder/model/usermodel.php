@@ -38,7 +38,6 @@ function login($username, $password){
     }
     
 
-
 function createUser($name, $age, $gender, $username, $password, $email, $user_type) {
     $con = dbConnect();
     $sql = "INSERT INTO users (id, name, age, gender, email, username, password, user_type) 
