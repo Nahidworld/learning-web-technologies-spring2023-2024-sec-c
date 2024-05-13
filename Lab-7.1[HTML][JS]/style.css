@@ -1,0 +1,20 @@
+*{
+    margin: 1rem;
+}
+fieldset {
+    width: 250px; 
+}
+hr {
+    /*border: 1px solid black; /* Set a solid black border with a thickness of 4 pixels */
+    width: 250px;
+    margin: 10px 0; 
+}
+.email-hint{
+    border: 2px solid rgb(180, 180, 253);
+    
+    font-weight: bold;
+}
+.email-hint:hover{
+    border: 2px solid blue;
+    color: rgb(0, 0, 254);
+}
