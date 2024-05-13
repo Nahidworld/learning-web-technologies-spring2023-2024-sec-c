@@ -1,9 +1,9 @@
 <?php
-    session_start();
-    if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
-        header("Location: login.php");
-        exit();
-    }
+    // session_start();
+    // if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+    //     header("Location: login.php");
+    //     exit();
+    // }
     include("header.php");
     include("../model/db.php");
     require_once('../model/userModel.php');
